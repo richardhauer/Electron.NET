@@ -19,22 +19,27 @@ cd ..
 
 echo "Restore & Build WebApp Demo"
 cd ElectronNet.WebApp
-dotnet restore ElectronNet.WebApp.NET5.csproj
-dotnet build ElectronNet.WebApp.NET5.csproj
+:: dotnet restore ElectronNet.WebApp.NET5.csproj
+:: dotnet build ElectronNet.WebApp.NET5.csproj
+dotnet restore ElectronNet.WebApp.csproj
+dotnet build ElectronNet.WebApp.csproj
 
 echo "Invoke electronize build in WebApp Demo"
 
-echo "/target xxx (dev-build)"
-electronize build /target custom win7-x86;win /dotnet-project ElectronNet.WebApp.NET5.csproj /dotnet-configuration Debug /electron-arch ia32  /electron-params "--publish never"
+:: echo "/target xxx (dev-build)"
+:: electronize build /target custom win7-x86;win /dotnet-project ElectronNet.WebApp.NET5.csproj /dotnet-configuration Debug /electron-arch ia32  /electron-params "--publish never"
+:: electronize build /target custom win7-x86;win /dotnet-project ElectronNet.WebApp.csproj /dotnet-configuration Debug /electron-arch ia32  /electron-params "--publish never"
 
 echo "/target win (dev-build)"
-electronize build /target win /dotnet-project ElectronNet.WebApp.NET5.csproj /electron-params "--publish never"
+:: electronize build /target win /dotnet-project ElectronNet.WebApp.NET5.csproj /electron-params "--publish never"
+:: electronize build /target win /dotnet-project ElectronNet.WebApp.csproj /electron-params "--publish never"
+electronize build /target win /dotnet-project ElectronNet.WebApp.csproj
 
-echo "/target custom win7-x86;win (dev-build)"
+:: echo "/target custom win7-x86;win (dev-build)"
+:: electronize build /target custom win7-x86;win /dotnet-project ElectronNet.WebApp.NET5.csproj /electron-params "--publish never"
+:: electronize build /target custom win7-x86;win /dotnet-project ElectronNet.WebApp.csproj /electron-params "--publish never"
 
-electronize build /target custom win7-x86;win /dotnet-project ElectronNet.WebApp.NET5.csproj /electron-params "--publish never"
-
-:: Be aware, that for non-electronnet-dev environments the correct 
+:: Be aware, that for non-electronnet-dev environments the correct
 :: invoke command would be dotnet electronize ...
 
 :: Not supported on Windows Systems, because of SymLinks...
