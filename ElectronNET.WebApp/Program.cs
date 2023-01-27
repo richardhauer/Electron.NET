@@ -33,7 +33,7 @@ namespace ElectronNET.WebApp
             builder.UseUrls("http://localhost:" + webPort);
 #else
             builder = CreateWebHostBuilder(args);
-            Debugger.Launch();
+            //Debugger.Launch();
             Electron.ReadAuth();
             builder.UseElectron(args);
 #endif

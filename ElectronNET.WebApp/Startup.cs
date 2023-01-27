@@ -62,7 +62,9 @@ namespace ElectronNET.WebApp
             await browserWindow.WebContents.Session.ClearCacheAsync();
 
             browserWindow.SetTitle(Configuration["DemoTitleInSettings"]);
-        }
+			browserWindow.OnClosed += () => Electron.App.Exit();
+
+		}
 
         private static void AddDevelopmentTests()
         {
